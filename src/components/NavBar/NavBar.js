@@ -1,4 +1,4 @@
-import CartButton from '../CartButton/CartButton'
+import CartWidget from '../CartWidget/CartWidget'
 import logo from '../../assets/images/surfiando-logo.png'
 
 const NavBar = () => {
@@ -19,7 +19,7 @@ const NavBar = () => {
                 
 
                 <div className="nav-item dropdown d-md-none ms-auto">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categorías
                     </a>
                     <ul className="dropdown-menu mt-4 bg-light rounded-0 border-0" aria-labelledby="navbarDropdown">
@@ -30,7 +30,7 @@ const NavBar = () => {
                     </ul>
                 </div>
 
-                <CartButton></CartButton>
+                <CartWidget></CartWidget>
             </div>
         </nav>
     )

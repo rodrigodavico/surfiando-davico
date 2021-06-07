@@ -1,50 +1,12 @@
 import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
+import ItemListContainer from "../ItemListContainer/ItemListContainer"
 
-const Layout = () => {
+const Layout = (children) => {
     return(
-        <div className="container-fluid p-0">
+        <div className="container-fluid d-flex flex-column p-0 min-vh-100">
             <NavBar />
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
-            <div>holaasss</div>
+            <ItemListContainer greeting="El greeting a pasar"/>
             <Footer />
         </div>
     )

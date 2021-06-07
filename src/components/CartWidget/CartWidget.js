@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const CartButton  = () => {
+const CartWidget  = () => {
     const [cartItems, setCartItems] = useState(0)
     return(
         <button 
@@ -11,4 +11,4 @@ const CartButton  = () => {
     )
 }
 
-export default CartButton
+export default CartWidget

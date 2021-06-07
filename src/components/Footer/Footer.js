@@ -1,6 +1,6 @@
 const Footer = (props) => {
     return(
-        <footer className="footer mb-auto bg-dark p-2 mt-4">
+        <footer className="footer mt-auto bg-dark p-2">
             <div className="row m-0">
                 <div className="col col-md-6 text-center">
                     <span className="text-muted">© Surfiando App 🏄🏄 - All rights reserved - 2021</span>
