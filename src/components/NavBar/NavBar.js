@@ -5,7 +5,7 @@ const NavBar = () => {
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light p-4">
             <div className="container-fluid">
-                <a className="navbar-brand me-auto" href="/home">
+                <a className="navbar-brand me-auto" href="/">
                     <img src={logo} alt="" width="30" height="30" className="d-inline-block align-text-top"></img>
                     <span className="ms-4">Surfiando App</span>
                 </a>

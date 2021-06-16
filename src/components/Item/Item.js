@@ -8,7 +8,7 @@ const Item = ({item}) => {
     }
 
     return(
-        <div className="card col-6 col-md">
+        <div className="card col-6 col-md-4">
             <img src={item.pictureUrl} alt="item pic" className="card-img-top"></img>
             <div className="card-body">
                 <span className="fs-3 fw-normal">{item.title}</span>
