@@ -14,7 +14,7 @@ const ItemListContainer = () => {
     }, [])
 
     return(
-        <div className="container-fluid d-flex justify-content-evenly text-center p-4">
+        <div className="container d-flex justify-content-evenly text-center p-4">
             {
                 item ? <ItemDetail item={item}></ItemDetail> : false
             }

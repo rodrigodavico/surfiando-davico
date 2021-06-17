@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router'
 
-const Item = ({item}) => {
+const Item = ({item, path}) => {
     const [itemCount, setItemCount] = useState(item.stock ? 1 : 0)
+    const history = useHistory()
+    const redirect = (id) => {
+        history.push(`/item/${id}`)
+    }
 
     function onAdd(qty) {
         console.log(qty)
@@ -9,9 +14,9 @@ const Item = ({item}) => {
 
     return(
         <div className="card col-6 col-md-4">
-            <img src={item.pictureUrl} alt="item pic" className="card-img-top"></img>
+            <img src={path ? '../' + item.pictureUrl : item.pictureUrl} alt="item pic" className="card-img-top" onClick={() => redirect(item.id)}></img>
             <div className="card-body">
-                <span className="fs-3 fw-normal">{item.title}</span>
+                <span className="fs-3 fw-normal" onClick={() => redirect(item.id)}>{item.title}</span>
                 <p className="fw-light">{item.desc}</p>
                 <span className="fw-light text-primary">Precio: ${item.price}</span>
                 <div className="input-group rounded-0 align-items-center justify-content-evenly">

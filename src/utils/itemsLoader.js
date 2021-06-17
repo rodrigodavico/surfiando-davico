@@ -5,6 +5,7 @@ const source = [
         title: 'Tabla de surf',
         desc: 'Es una tabla re cool.',
         price: 3600,
+        category: 1,
         stock: 10,
     },
     {
@@ -13,6 +14,7 @@ const source = [
         title: 'Googles',
         desc: 'Para ver bajo el agua.',
         price: 1500,
+        category: 3,
         stock: 15,
     },
     {
@@ -21,6 +23,7 @@ const source = [
         title: 'Traje de ñoba',
         desc: 'Atalo bien que se sale sino.',
         price: 850,
+        category: 2,
         stock: 2,
     },
     {
@@ -29,6 +32,7 @@ const source = [
         title: 'Traje de neopreno',
         desc: 'Apretadito!',
         price: 5200,
+        category: 2,
         stock: 0,
     },
     {
@@ -37,11 +41,19 @@ const source = [
         title: 'Silbato de bañero',
         desc: 'Chifla!',
         price: 600,
+        category: 3,
         stock: 11,
     }
 ]
 
-export default new Promise(res => setTimeout(() => res(source), 2000))
+const itemsLoader = (category) => {
+    return new Promise(res => setTimeout(() => res(category ? source.filter(elem => elem.category === parseInt(category)) : source), 2000))
+}
+
+
+export default itemsLoader
+
+//export default new Promise(res => setTimeout(() => res(source), 2000))
 
 
 

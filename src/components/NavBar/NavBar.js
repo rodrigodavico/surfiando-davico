@@ -11,10 +11,10 @@ const NavBar = () => {
                 </a>
                 
                 <ul className="navbar-nav d-none d-md-flex ms-auto">
-                    <li><a className="dropdown-item" href="/tablas">Tablas 🏄</a></li>
-                    <li><a className="dropdown-item" href="/trajes">Trajes 🩳</a></li>
-                    <li><a className="dropdown-item" href="/insumos">Insumos 🤿</a></li>
-                    <li><a className="dropdown-item" href="/merchc">Merchandising 🏊</a></li>
+                    <li><a className="dropdown-item" href="/category/1">Tablas 🏄</a></li>
+                    <li><a className="dropdown-item" href="/category/2">Trajes 🩳</a></li>
+                    <li><a className="dropdown-item" href="/category/3">Insumos 🤿</a></li>
+                    <li><a className="dropdown-item" href="/category/4">Merchandising 🏊</a></li>
                 </ul>
                 
 
@@ -23,10 +23,10 @@ const NavBar = () => {
                         Categorías
                     </a>
                     <ul className="dropdown-menu mt-4 bg-light rounded-0 border-0" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="/tablas">Tablas 🏄</a></li>
-                        <li><a className="dropdown-item" href="/trajes">Trajes 🩳</a></li>
-                        <li><a className="dropdown-item" href="/insumos">Insumos 🤿</a></li>
-                        <li><a className="dropdown-item" href="/merchc">Merchandising 🏊</a></li>
+                        <li><a className="dropdown-item" href="/category/1">Tablas 🏄</a></li>
+                        <li><a className="dropdown-item" href="/category/2">Trajes 🩳</a></li>
+                        <li><a className="dropdown-item" href="/category/3">Insumos 🤿</a></li>
+                        <li><a className="dropdown-item" href="/category/4">Merchandising 🏊</a></li>
                     </ul>
                 </div>
 

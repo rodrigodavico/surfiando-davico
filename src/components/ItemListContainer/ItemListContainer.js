@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
 import ItemList from "../ItemList/ItemList"
 import itemsLoader from "../../utils/itemsLoader"
 
 const ItemDetailContainer = () => {
     const [items, setItems] = useState([])
+    const { id } = useParams()
     
     useEffect(() => {
-        itemsLoader.then(res => {
+        itemsLoader(id).then(res => {
             setItems(res)
         })
     }, [])
 
     return(
-        <div className="container-fluid text-center p-4">
+        <div className="container text-center p-4">
             {
-                <ItemList items={items}></ItemList>
+                <ItemList items={items} path={id}></ItemList>
             }
         </div>
     )
