@@ -2,7 +2,7 @@ const ItemDetail = ({item}) => {
     
     return(
         <div className="card w-75">
-            <img src={item.pictureUrl} alt="item pic" className="card-img-top"></img>
+            <img src={'../'+item.pictureUrl} alt="item pic" className="card-img-top img-fluid"></img>
             <div className="card-body">
                 <span className="fs-3 fw-normal">{item.title}</span>
                 <p className="fw-light">{item.desc}</p>
