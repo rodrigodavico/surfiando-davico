@@ -5,6 +5,7 @@ const source = [
         title: 'Tabla de surf',
         desc: 'Es una tabla re cool.',
         price: 3600,
+        category: 1,
         stock: 10,
     },
     {
@@ -13,6 +14,7 @@ const source = [
         title: 'Googles',
         desc: 'Para ver bajo el agua.',
         price: 1500,
+        category: 3,
         stock: 15,
     },
     {
@@ -21,6 +23,7 @@ const source = [
         title: 'Traje de ñoba',
         desc: 'Atalo bien que se sale sino.',
         price: 850,
+        category: 2,
         stock: 2,
     },
     {
@@ -29,6 +32,7 @@ const source = [
         title: 'Traje de neopreno',
         desc: 'Apretadito!',
         price: 5200,
+        category: 2,
         stock: 0,
     },
     {
@@ -37,7 +41,35 @@ const source = [
         title: 'Silbato de bañero',
         desc: 'Chifla!',
         price: 600,
+        category: 3,
         stock: 11,
+    },
+    {
+        id: 6,
+        pictureUrl: './assets/images/products/6.webp',
+        title: 'Tabla Cool',
+        desc: 'Para surfiar!',
+        price: 4900,
+        category: 1,
+        stock: 2,
+    },
+    {
+        id: 7,
+        pictureUrl: './assets/images/products/7.webp',
+        title: 'Llavero Surfiando',
+        desc: 'no pierdas las llaves!',
+        price: 350,
+        category: 4,
+        stock: 29,
+    },
+    {
+        id: 8,
+        pictureUrl: './assets/images/products/8.webp',
+        title: 'Patas de rana',
+        desc: 'Croack Croack',
+        price: 2970,
+        category: 3,
+        stock: 6,
     }
 ]
 
@@ -48,4 +80,3 @@ const itemLoader = (id) => {
 
 
 export default itemLoader
-//export default new Promise(res => setTimeout(() => res(source.filter(elem => elem.id === 2)), 2000))

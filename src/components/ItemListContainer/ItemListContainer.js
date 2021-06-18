@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
         itemsLoader(id).then(res => {
             setItems(res)
         })
-    }, [])
+    }, [id])
 
     return(
         <div className="container text-center p-4">

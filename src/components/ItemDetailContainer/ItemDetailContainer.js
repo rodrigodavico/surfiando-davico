@@ -11,7 +11,7 @@ const ItemListContainer = () => {
         itemLoader(id).then(res => {
             setItem(res[0])
         })
-    }, [])
+    }, [id])
 
     return(
         <div className="container d-flex justify-content-evenly text-center p-4">

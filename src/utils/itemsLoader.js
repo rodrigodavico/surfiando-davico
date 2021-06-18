@@ -43,6 +43,33 @@ const source = [
         price: 600,
         category: 3,
         stock: 11,
+    },
+    {
+        id: 6,
+        pictureUrl: './assets/images/products/6.webp',
+        title: 'Tabla Cool',
+        desc: 'Para surfiar!',
+        price: 4900,
+        category: 1,
+        stock: 2,
+    },
+    {
+        id: 7,
+        pictureUrl: './assets/images/products/7.webp',
+        title: 'Llavero Surfiando',
+        desc: 'no pierdas las llaves!',
+        price: 350,
+        category: 4,
+        stock: 29,
+    },
+    {
+        id: 8,
+        pictureUrl: './assets/images/products/8.webp',
+        title: 'Patas de rana',
+        desc: 'Croack Croack',
+        price: 2970,
+        category: 3,
+        stock: 6,
     }
 ]
 
@@ -52,8 +79,6 @@ const itemsLoader = (category) => {
 
 
 export default itemsLoader
-
-//export default new Promise(res => setTimeout(() => res(source), 2000))
 
 
 
