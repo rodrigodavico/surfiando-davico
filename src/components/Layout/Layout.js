@@ -11,8 +11,8 @@ import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 const Layout = () => {
     return(
         <div className="container-fluid d-flex flex-column min-vh-100 p-0">
-            <NavBar />
-                <BrowserRouter>
+            <BrowserRouter>
+                <NavBar />                
                     <Switch>
                         <Route exact path="/">
                             <ItemListContainer/>
@@ -27,8 +27,8 @@ const Layout = () => {
                             <TyC/>
                         </Route>
                     </Switch>
-                </BrowserRouter>
-            <Footer />
+                <Footer />
+            </BrowserRouter>
         </div>
     )
 }

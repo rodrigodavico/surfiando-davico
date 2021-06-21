@@ -1,5 +1,6 @@
 import CartWidget from '../CartWidget/CartWidget'
 import logo from '../../assets/images/surfiando-logo.png'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     return(
@@ -11,10 +12,10 @@ const NavBar = () => {
                 </a>
                 
                 <ul className="navbar-nav d-none d-md-flex ms-auto">
-                    <li><a className="dropdown-item" href="/category/1">Tablas 🏄</a></li>
-                    <li><a className="dropdown-item" href="/category/2">Trajes 🩳</a></li>
-                    <li><a className="dropdown-item" href="/category/3">Insumos 🤿</a></li>
-                    <li><a className="dropdown-item" href="/category/4">Merchandising 🏊</a></li>
+                    <li><NavLink className="nav-link" activeClassName="text-primary" to={"/category/1"}>Tablas 🏄</NavLink></li>
+                    <li><NavLink className="nav-link" activeClassName="text-primary" to={"/category/2"}>Trajes 🩳</NavLink></li>
+                    <li><NavLink className="nav-link" activeClassName="text-primary" to={"/category/3"}>Insumos 🤿</NavLink></li>
+                    <li><NavLink className="nav-link" activeClassName="text-primary" to={"/category/4"}>Merchandising 🏊</NavLink></li>
                 </ul>
                 
 
@@ -23,10 +24,10 @@ const NavBar = () => {
                         Categorías
                     </a>
                     <ul className="dropdown-menu mt-4 bg-light rounded-0 border-0" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="/category/1">Tablas 🏄</a></li>
-                        <li><a className="dropdown-item" href="/category/2">Trajes 🩳</a></li>
-                        <li><a className="dropdown-item" href="/category/3">Insumos 🤿</a></li>
-                        <li><a className="dropdown-item" href="/category/4">Merchandising 🏊</a></li>
+                        <li><NavLink className="dropdown-item" activeClassName="text-primary" to={"/category/1"}>Tablas 🏄</NavLink></li>
+                        <li><NavLink className="dropdown-item" activeClassName="text-primary" to={"/category/2"}>Trajes 🩳</NavLink></li>
+                        <li><NavLink className="dropdown-item" activeClassName="text-primary" to={"/category/3"}>Insumos 🤿</NavLink></li>
+                        <li><NavLink className="dropdown-item" activeClassName="text-primary" to={"/category/4"}>Merchandising 🏊</NavLink></li>
                     </ul>
                 </div>
 
