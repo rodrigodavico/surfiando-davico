@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
+import Cart from "../Cart/Cart"
 import TyC from "../TyC/TyC"
 
 import ItemListContainer from "../ItemListContainer/ItemListContainer"
@@ -22,6 +23,9 @@ const Layout = () => {
                         </Route>
                         <Route path="/item/:id">
                             <ItemDetailContainer/>
+                        </Route>
+                        <Route exact path="/cart">
+                            <Cart/>
                         </Route>
                         <Route path="/tyc">
                             <TyC/>
