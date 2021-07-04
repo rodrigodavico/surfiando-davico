@@ -1,8 +1,11 @@
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/Layout/Layout"
+import CartContext from "./context/CartContext"
 
 function SurfiandoApp() {
   return (
-    <Layout />
+    <CartContext.Provider value={[]}>
+      <Layout />
+    </CartContext.Provider>
   );
 }
 
