@@ -1,9 +1,11 @@
-import ItemCount from '../ItemCount/ItemCount'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import ItemCount from '../ItemCount/ItemCount'
+import CartContext from '../../context/CartContext'
 
 const ItemDetail = ({item}) => {
     const [itemCount, setItemCount] = useState(0)
+    const cart = useContext(CartContext)
     let history = useHistory()
 
     function goCart() {
@@ -14,8 +16,8 @@ const ItemDetail = ({item}) => {
         setItemCount(qty)
     }
 
-    function buyItems(qty) {
-        console.log(qty)
+    function buyItems(item, qty) {
+        cart.addItem({item: item, qty})
         goCart()
     }
     
@@ -28,7 +30,7 @@ const ItemDetail = ({item}) => {
                 <span className="fw-light text-primary">Precio: ${item.price}</span>
                 <ItemCount item={item} addItems={onAdd}></ItemCount>
             </div>
-            {itemCount > 0 && <button className="btn btn-primary rounded-0 mt-3" onClick={() => buyItems(itemCount)}>Terminar la compra</button>}
+            {itemCount > 0 && <button className="btn btn-primary rounded-0 mt-3" onClick={() => buyItems(item, itemCount)}>Terminar la compra</button>}
         </div>
     )
 }
