@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import CartContext from './CartContext'
+import React, { useState } from 'react'
 
-const CartProvider = ({ defaultCache = [], children }) => {
-    const [cart, setCart] = useState(defaultCache)
+const CartContext = React.createContext()
+
+const CartProvider = ({ defaultValue = [], children }) => {
+    const [cart, setCart] = useState(defaultValue)
 
     function getFromCart(id) {
         return cart.find(item => item.item.id === id)
@@ -26,8 +27,7 @@ const CartProvider = ({ defaultCache = [], children }) => {
             console.log('item count updated!')
             setCart([newCart])
         }
-        console.log('added item to cart!')
-
+        console.log('item added to cart!')
         setCart([...cart, {item, qty}])
     }
 
@@ -48,4 +48,4 @@ const CartProvider = ({ defaultCache = [], children }) => {
     )
 }
 
-export default CartProvider
+export { CartContext, CartProvider }

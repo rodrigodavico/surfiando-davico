@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
-import CartContext from '../../context/CartContext'
+import { CartContext } from '../../context/CartProvider'
 
 const ItemDetail = ({item}) => {
     const [itemCount, setItemCount] = useState(0)
