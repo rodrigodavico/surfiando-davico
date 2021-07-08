@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import CartContext from '../../context/CartContext'
 
 const CartWidget  = () => {
-    const [cartItems, setCartItems] = useState(0)
+    const itemsCount = useContext(CartContext).itemsCount
+    let history = useHistory()
+
+    function goCart() {
+        history.push('/cart')
+    }
+
     return(
         <button 
-        onClick={() => setCartItems(cartItems+1)}
+        onClick={() => goCart()}
         className="btn btn-outline-secondary rounded-0 ms-auto">
-            <i className="bi-cart-check-fill"></i> {cartItems}
+            <i className="bi-cart-check-fill"></i> {itemsCount ? itemsCount : false}
         </button>
     )
 }

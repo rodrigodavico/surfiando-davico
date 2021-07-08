@@ -1,5 +1,5 @@
 import Layout from "./components/Layout/Layout"
-import { CartProvider } from "./context/CartProvider"
+import CartProvider from "./context/CartProvider"
 
 function SurfiandoApp() {
   return (

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-
-const CartContext = React.createContext()
+import { useState } from 'react'
+import CartContext from './CartContext'
 
 const CartProvider = ({ defaultValue = [], children }) => {
     const [cart, setCart] = useState(defaultValue)
+    const [itemsCount, setItemsCount] = useState(0)
+    const [cartTotal, setCartTotal] = useState(0)
 
     function getFromCart(id) {
         return cart.find(item => item.item.id === id)
@@ -13,7 +14,18 @@ const CartProvider = ({ defaultValue = [], children }) => {
         return id === undefined ? undefined : getFromCart(id) !== undefined
     }
 
-    function addItem({item, qty}) {
+    function updateTotal(operation, price) {
+        switch(operation) {
+            case '+':
+                setCartTotal(cartTotal+price)
+                break;
+            case '-':
+                setCartTotal(cartTotal-price)
+                break;
+        }
+    }
+
+    function addItems({item, qty}) {
         if(item.id && inCart(item.id)) {
             const newCart = cart.map(
                 ({cartItem, cartQty}) => {
@@ -25,27 +37,29 @@ const CartProvider = ({ defaultValue = [], children }) => {
                     }
                 })
             console.log('item count updated!')
-            setCart([newCart])
+            updateTotal('+', item.price*qty)
+            setCart(newCart)
         }
-        console.log('item added to cart!')
+        setItemsCount(itemsCount+qty)
+        updateTotal('+', item.price*qty)
         setCart([...cart, {item, qty}])
     }
 
-    /*
-    function removeItem(item) {
+    function removeItems({item, qty}) {
         //TODO
+        console.log('removed item!', item, qty)
     }
 
-    function clear() {
-        setCart([])
+    function clearItems() {
+        //TODO
+        console.log('remove items group!')
     }
-    */
 
     return(
-        <CartContext.Provider value={{cart, addItem, inCart}}>
+        <CartContext.Provider value={{cart, cartTotal, itemsCount, addItems, removeItems, clearItems, inCart}}>
             {children}
         </CartContext.Provider>
     )
 }
 
-export { CartContext, CartProvider }
+export default CartProvider
