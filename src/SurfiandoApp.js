@@ -9,4 +9,4 @@ function SurfiandoApp() {
   );
 }
 
-export default SurfiandoApp;
+export default SurfiandoApp

@@ -22,7 +22,7 @@ const Item = ({item, path}) => {
             <img src={path ? '../' + item.pictureUrl : item.pictureUrl} alt="item pic" className="card-img-top" onClick={() => goItem(item.id)}></img>
             <div className="card-body">
                 <span className="fs-3 fw-normal" onClick={() => goItem(item.id)}>{item.title}</span>
-                <p className="fw-light">{item.desc}</p>
+                <p className="fw-light">{item.description}</p>
                 <span className="fw-light text-primary">Precio: ${item.price}</span>
                 {itemCount ?
                     <div className="input-group rounded-0 align-items-center justify-content-evenly">

@@ -12,6 +12,13 @@ El sitio está pensado para ser responsive, por lo cual se decidió realizar el 
 ### Instrucciones de utilización ####
 
 Para correr la app se requiere tener instalado node: https://nodejs.org/en/.
-Navegar con el cmd/powershell/bash hasta la carpeta contenedora del proyecto e ingresar npm start en la consola.
+Navegar con el cmd/powershell/bash hasta la carpeta contenedora del proyecto e ingresar en la consola:
+```console
+npm install
+```
+al finalizar el proceso ingresar:
+```console
+npm start
+```
 
 Cheers!

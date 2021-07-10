@@ -9,7 +9,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         itemLoader(id).then(res => {
-            setItem(res[0])
+            setItem(res)
         })
     }, [id])
 
