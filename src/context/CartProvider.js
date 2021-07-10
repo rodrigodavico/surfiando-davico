@@ -22,37 +22,56 @@ const CartProvider = ({ defaultValue = [], children }) => {
             case '-':
                 setCartTotal(cartTotal-price)
                 break;
+            default:
+                console.log('ERROR: incorrect operation')
+                break;
         }
     }
 
     function addItems({item, qty}) {
-        if(item.id && inCart(item.id)) {
-            const newCart = cart.map(
-                ({cartItem, cartQty}) => {
-                    if(cartItem.id === item.id) {
-                        cartQty+=qty
-                        return {item: cartItem, cartQty}
-                    } else {
-                        return {cartItem, cartQty}
-                    }
-                })
-            console.log('item count updated!')
-            updateTotal('+', item.price*qty)
-            setCart(newCart)
+        // if item is already in cart, just update it, else add it.
+        if(inCart(item.id)) {
+            let updatedCart = cart
+            let updatedItem = cart.find(el => el.item.id === item.id)
+            updatedItem.qty += qty
+            updatedCart.splice(updatedCart.findIndex(el => el.item.id === item.id), 1, updatedItem)
+            setCart(updatedCart)
+        } else {
+            setCart([...cart, {item, qty}])
         }
+
         setItemsCount(itemsCount+qty)
         updateTotal('+', item.price*qty)
-        setCart([...cart, {item, qty}])
     }
 
     function removeItems({item, qty}) {
-        //TODO
-        console.log('removed item!', item, qty)
+        // item to remove SHOULD be in cart, if not it's an error.
+        if(inCart(item.id)) {
+            let updatedCart = cart
+            let updatedItem = cart.find(el => el.item.id === item.id)
+            // if amount to remove is less than the current amount in cart, remove and update cart.
+            // if amount to remote is more, possible error. Just delete all items.
+            if(updatedItem.qty > qty) {
+                updatedItem.qty -= qty
+                updatedCart.splice(updatedCart.findIndex(el => el.item.id === item.id), 1, updatedItem)
+                setCart(updatedCart)
+
+                setItemsCount(itemsCount-qty)
+                updateTotal('-', item.price*qty)
+            } else {
+                clearItems(item)
+            }
+        } else {
+            console.log("ERROR: Item not found in cart!")
+        }
     }
 
-    function clearItems() {
-        //TODO
-        console.log('remove items group!')
+    function clearItems(item) {
+        let updatedCart = cart
+        let removedItem = cart.find(el => el.item.id === item.id)
+        updatedCart.splice(updatedCart.findIndex(el => el.item.id === item.id), 1)
+        setItemsCount(itemsCount-removedItem.qty)
+        updateTotal('-', item.price*removedItem.qty)
     }
 
     return(

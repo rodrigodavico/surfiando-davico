@@ -1,30 +1,41 @@
-import { useState } from 'react'
-import { useHistory } from 'react-router'
+import { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import CartContext from '../../context/CartContext'
 
 const Item = ({item, path}) => {
     const [itemCount, setItemCount] = useState(item.stock ? 1 : 0)
-    const history = useHistory()
-    const redirect = (id) => {
+    const addItems = useContext(CartContext).addItems
+
+    let history = useHistory()
+    
+    function goItem(id) {
         history.push(`/item/${id}`)
     }
 
-    function onAdd(qty) {
-        console.log(qty)
+    function buyItems(item, qty) {
+        addItems({item, qty})
     }
 
     return(
         <div className="card col-6 col-md-4">
-            <img src={path ? '../' + item.pictureUrl : item.pictureUrl} alt="item pic" className="card-img-top" onClick={() => redirect(item.id)}></img>
+            <img src={path ? '../' + item.pictureUrl : item.pictureUrl} alt="item pic" className="card-img-top" onClick={() => goItem(item.id)}></img>
             <div className="card-body">
-                <span className="fs-3 fw-normal" onClick={() => redirect(item.id)}>{item.title}</span>
+                <span className="fs-3 fw-normal" onClick={() => goItem(item.id)}>{item.title}</span>
                 <p className="fw-light">{item.desc}</p>
                 <span className="fw-light text-primary">Precio: ${item.price}</span>
-                <div className="input-group rounded-0 align-items-center justify-content-evenly">
-                    <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => (itemCount > 1) ? setItemCount(itemCount-1) : false}>-</button>
-                    <span className="">{itemCount}</span>
-                    <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => (itemCount < item.stock) ? setItemCount(itemCount+1) : false}>+</button>
-                </div>
-                <button className="btn btn-primary rounded-0 mt-3" onClick={() => item.stock ? onAdd(itemCount) : false}>Agregar al carrito</button>
+                {itemCount ?
+                    <div className="input-group rounded-0 align-items-center justify-content-evenly">
+                        <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => (itemCount > 1) ? setItemCount(itemCount-1) : false}>-</button>
+                        <span className="">{itemCount}</span>
+                        <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => (itemCount < item.stock) ? setItemCount(itemCount+1) : false}>+</button>
+                    </div>
+                    :
+                    <div className="p-2">
+                        <span className="text-danger fs-5">No hay stock</span>
+                    </div> 
+                }
+                {itemCount ? <button className="btn btn-primary rounded-0 mt-3" onClick={() => item.stock ? buyItems(item, itemCount) : false}>Agregar al carrito</button> : false}
             </div>
         </div>
     )

@@ -4,7 +4,6 @@ import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
 import Cart from "../Cart/Cart"
 import TyC from "../TyC/TyC"
-
 import ItemListContainer from "../ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 

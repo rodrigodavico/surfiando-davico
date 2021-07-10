@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 const Footer = (props) => {
     return(
         <footer className="footer mt-auto bg-dark p-2">
@@ -6,7 +8,7 @@ const Footer = (props) => {
                     <span className="text-muted">© Surfiando App 🏄🏄 - All rights reserved - 2021</span>
                 </div>
                 <div className="col col-md-6 text-center">
-                    <a href="/tyc" className="text-decoration-none">Términos y Condiciones</a>
+                    <NavLink className="text-decoration-none" activeClassName="text-primary" to={"/tyc"}>Términos y Condiciones</NavLink>
                 </div>
             </div>
         </footer>

@@ -15,9 +15,9 @@ const Cart = () => {
     }
 
     return (
-        <div className="container text-center">
+        <div className="container text-center py-5">
             {itemsCount ? 
-                cart.map(({item, qty}) => <CartItem item={item} qty={qty}></CartItem>)
+                cart.map(({item, qty}) => <CartItem item={item} qty={qty} key={item.id}></CartItem>)
                 :
                 <div>
                     <h1>Carrito vacío</h1>
@@ -25,9 +25,9 @@ const Cart = () => {
                 </div>
             }
             {itemsCount ?
-                <div>
+                <div className="container text-center py-5">
                     <h2>Total</h2>
-                    <span>{cartTotal}</span>
+                    <span className="fw-light fs-5">$ {cartTotal} ARS</span>
                 </div>
                 :
                 false}
