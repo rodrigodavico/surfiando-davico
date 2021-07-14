@@ -1,11 +1,14 @@
 import Layout from "./components/Layout/Layout"
 import CartProvider from "./context/CartProvider"
+import SessionProvider from "./context/SessionProvider"
 
 function SurfiandoApp() {
   return (
-    <CartProvider>
-      <Layout />
-    </CartProvider>
+    <SessionProvider>
+      <CartProvider>
+        <Layout />
+      </CartProvider>
+    </SessionProvider>
   );
 }
 

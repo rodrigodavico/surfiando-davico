@@ -18,9 +18,9 @@ const Item = ({item, path}) => {
     }
 
     return(
-        <div className="card col-6 col-md-4">
+        <div className="card col-6 col-md-4 justify-content-evenly">
             <img src={path ? '../' + item.pictureUrl : item.pictureUrl} alt="item pic" className="card-img-top" onClick={() => goItem(item.id)}></img>
-            <div className="card-body">
+            <div className="card-body flex-grow-0">
                 <span className="fs-3 fw-normal" onClick={() => goItem(item.id)}>{item.title}</span>
                 <p className="fw-light">{item.description}</p>
                 <span className="fw-light text-primary">Precio: ${item.price}</span>
