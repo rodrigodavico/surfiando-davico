@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 import NavBar from "./NavBar"
 import Footer from "./Footer"
+import UserMenu from './UserMenu'
 import Cart from "../Cart/Cart"
 import TyC from "../TyC/TyC"
 import Login from "../Login/Login"
@@ -16,6 +17,7 @@ const Layout = () => {
         <div className="container-fluid d-flex flex-column min-vh-100 p-0">
             <BrowserRouter>
                 <NavBar />
+                <UserMenu />
                     <Switch>
                         <Route exact path="/">
                             <ItemListContainer/>

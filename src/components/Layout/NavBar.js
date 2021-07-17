@@ -1,5 +1,4 @@
 import CartWidget from '../CartWidget/CartWidget'
-import UserMenu from './UserMenu'
 import logo from '../../assets/images/surfiando-logo.png'
 import { NavLink } from 'react-router-dom'
 
@@ -31,9 +30,7 @@ const NavBar = () => {
                         <li><NavLink className="dropdown-item" activeClassName="text-primary" to={"/category/4"}>Merchandising 🏊</NavLink></li>
                     </ul>
                 </div>
-
                 <CartWidget></CartWidget>
-                <UserMenu></UserMenu>
             </div>
         </nav>
     )

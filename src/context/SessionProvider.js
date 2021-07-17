@@ -5,6 +5,7 @@ import SessionContext from './SessionContext'
 
 const SessionProvider = ({ defaultValue = false, children }) => {
     const [user, setUser] = useState(defaultValue)
+    const [avatar, setAvatar] = useState(defaultValue)
 
     const loginButton = 
         <GoogleLogin
@@ -24,14 +25,17 @@ const SessionProvider = ({ defaultValue = false, children }) => {
 
     function login(res) {
         let user = false
+        let avatar = false
         if(res.profileObj) {
             user = {
                 id: res.profileObj.googleId,
                 name: res.profileObj.name,
                 email: res.profileObj.email,
             }
+            avatar = res.profileObj.imageUrl
         }
         setUser(user)
+        setAvatar(avatar)
     }
 
     function logout() {
@@ -44,7 +48,7 @@ const SessionProvider = ({ defaultValue = false, children }) => {
     }
 
     return(
-        <SessionContext.Provider value={{user, loginButton, logoutButton}}>
+        <SessionContext.Provider value={{user, avatar, loginButton, logoutButton}}>
             {children}
         </SessionContext.Provider>
     )
