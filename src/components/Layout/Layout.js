@@ -15,7 +15,7 @@ const Layout = () => {
     return(
         <div className="container-fluid d-flex flex-column min-vh-100 p-0">
             <BrowserRouter>
-                <NavBar />                
+                <NavBar />
                     <Switch>
                         <Route exact path="/">
                             <ItemListContainer/>

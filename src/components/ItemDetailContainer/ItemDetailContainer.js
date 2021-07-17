@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import itemLoader from "../../utils/itemLoader"
+import Spinner from "../Layout/Spinner"
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState(false)
@@ -15,8 +16,10 @@ const ItemDetailContainer = () => {
 
     return(
         <div className="container d-flex justify-content-evenly text-center p-4">
-            {
-                item ? <ItemDetail item={item}></ItemDetail> : false
+            {item ? 
+                <ItemDetail item={item}></ItemDetail>
+                :
+                <Spinner></Spinner>
             }
         </div>
     )

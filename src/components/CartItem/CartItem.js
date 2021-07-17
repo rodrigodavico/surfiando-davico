@@ -23,7 +23,7 @@ const CartItem = ({item, qty}) => {
         <div className="card mb-3 p-2">
             <div className="row g-0">
                 <div className="col-md-4">
-                    <img src={'../' + item.pictureUrl} className="img-fluid" style={{ "maxHeight": '200px' }} alt="product"></img>
+                    <img src={'../' + item.pictureUrl} className="img-fluid" style={{ "maxHeight": "200px" }} alt="product"></img>
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
@@ -35,7 +35,7 @@ const CartItem = ({item, qty}) => {
                         <input type="text" className="form-control text-center" value={qty} disabled={true} style={{ "maxWidth" : "200px" }} />
                         <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => onAdd(item)}><i className="bi-chevron-right"></i></button>
                     </div>
-                    <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => onClearItems(item)}><i className="bi-cart-x"> Remove items</i></button>
+                    <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => onClearItems(item)}><i className="bi-cart-x"> Quitar items</i></button>
                 </div>
             </div>
         </div>

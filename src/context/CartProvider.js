@@ -74,8 +74,15 @@ const CartProvider = ({ defaultValue = [], children }) => {
         updateTotal('-', item.price*removedItem.qty)
     }
 
+    // function to clear all items from the cart.
+    function clearCart() {
+        setCart([])
+        setItemsCount(0)
+        setCartTotal(0)
+    }
+
     return(
-        <CartContext.Provider value={{cart, cartTotal, itemsCount, addItems, removeItems, clearItems, inCart}}>
+        <CartContext.Provider value={{cart, cartTotal, itemsCount, addItems, removeItems, clearItems, clearCart}}>
             {children}
         </CartContext.Provider>
     )

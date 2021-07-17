@@ -1,4 +1,5 @@
 import CartWidget from '../CartWidget/CartWidget'
+import UserMenu from './UserMenu'
 import logo from '../../assets/images/surfiando-logo.png'
 import { NavLink } from 'react-router-dom'
 
@@ -32,6 +33,7 @@ const NavBar = () => {
                 </div>
 
                 <CartWidget></CartWidget>
+                <UserMenu></UserMenu>
             </div>
         </nav>
     )
