@@ -24,7 +24,7 @@ const Login = () => {
             </>
             :
             <>
-                <h3>Hola {user.name}</h3>
+                <h3>Hola {user.name}!</h3>
                 <span className="fw-lighter text-primary">Ya estás logueado en nuestro sitio, a surfiar!</span>
                 <div className="py-5">
                     <button className="btn btn-primary rounded-0" onClick={() => goCart()}>Ir a Carrito</button>

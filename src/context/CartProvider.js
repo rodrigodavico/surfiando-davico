@@ -29,14 +29,19 @@ const CartProvider = ({ defaultValue = [], children }) => {
     }
 
     function addItems({item, qty}) {
-        // if item is already in cart, just update it, else add it.
+        // if item is already in cart, update it, else add it.
         if(inCart(item.id)) {
+            if(!checkStock(item, qty))
+                return false                
             let updatedCart = cart
             let updatedItem = cart.find(el => el.item.id === item.id)
             updatedItem.qty += qty
             updatedCart.splice(updatedCart.findIndex(el => el.item.id === item.id), 1, updatedItem)
             setCart(updatedCart)
         } else {
+            if(!checkStock(item, qty))
+                return false
+            checkStock(item, qty)
             setCart([...cart, {item, qty}])
         }
 
@@ -66,6 +71,7 @@ const CartProvider = ({ defaultValue = [], children }) => {
         }
     }
 
+    // function to clear all the same items in cart.
     function clearItems(item) {
         let updatedCart = cart
         let removedItem = cart.find(el => el.item.id === item.id)
@@ -79,6 +85,16 @@ const CartProvider = ({ defaultValue = [], children }) => {
         setCart([])
         setItemsCount(0)
         setCartTotal(0)
+    }
+
+    // function to check if there's stock available for the quantity required.
+    function checkStock(item, qty) {
+        if(inCart(item.id)) {
+            let cartItem = cart.find(el => el.item.id === item.id)
+            return (cartItem.qty+qty <= item.stock) ? true : false
+        } else {
+            return (qty <= item.stock) ? true : false
+        }
     }
 
     return(

@@ -21,6 +21,7 @@ const SessionProvider = ({ defaultValue = false, children }) => {
             clientId="171541500541-98ec1m8rus2p5cmqjf3lu9j5l9i5vfkn.apps.googleusercontent.com"
             buttonText="Logout"
             onLogoutSuccess={logout}
+            isSignedIn={true}
         />
 
     function login(res) {

@@ -33,7 +33,7 @@ const CartItem = ({item, qty}) => {
                     <div className="input-group mb-3 col-2 px-5 justify-content-center">
                         <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => onRemove(item)}><i className="bi-chevron-left"></i></button>
                         <input type="text" className="form-control text-center" value={qty} disabled={true} style={{ "maxWidth" : "200px" }} />
-                        <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => onAdd(item)}><i className="bi-chevron-right"></i></button>
+                        <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => (qty+1 < item.stock) ? onAdd(item) : false}><i className="bi-chevron-right"></i></button>
                     </div>
                     <button className="btn btn-outline-secondary rounded-0" type="button" onClick={() => onClearItems(item)}><i className="bi-cart-x"> Quitar items</i></button>
                 </div>
