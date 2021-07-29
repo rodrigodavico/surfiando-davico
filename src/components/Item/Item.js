@@ -5,6 +5,7 @@ import CartContext from '../../context/CartContext'
 
 const Item = ({item, path}) => {
     const [itemCount, setItemCount] = useState(item.stock ? 1 : 0)
+    const [boughtItem, setBoughtItem] = useState(false)
     const addItems = useContext(CartContext).addItems
 
     let history = useHistory()
@@ -13,7 +14,12 @@ const Item = ({item, path}) => {
         history.push(`/item/${id}`)
     }
 
+    function goCart() {
+        history.push(`/cart/`)
+    }
+
     function buyItems(item, qty) {
+        setBoughtItem(true)
         addItems({item, qty})
     }
 
@@ -36,6 +42,7 @@ const Item = ({item, path}) => {
                     </div> 
                 }
                 {itemCount ? <button className="btn btn-primary rounded-0 mt-3" onClick={() => item.stock ? buyItems(item, itemCount) : false}>Agregar al carrito</button> : false}
+                {boughtItem ? <button className="btn btn-secondary rounded-0 mt-3" onClick={() => goCart()}>Terminar la compra</button> : false}
             </div>
         </div>
     )
